@@ -1,0 +1,21 @@
+{% extends 'first_app/base.html' %}
+
+{% block body_block %}
+
+<h1> Student List </h1>
+
+<ul>
+{% if student_list %}
+{% for student in student_list %}
+<li> <a href=" {% url 'first_app:student_info' student_id=student.id %} "> 
+{{student.first_name }} {{student.last_name}} </li> </a>
+{% endfor %}
+{% else %}
+
+<h3> NO Student </h3>
+
+{% endif %}
+
+</ul>
+
+{% endblock %}
